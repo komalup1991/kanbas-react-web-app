@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select>
+        <option selected value="Speed Grader">Speed Grader</option>
+        <option value="Duplicate">Duplicate</option>
+        <option value="AssDates">Edit Assignment Dates</option>
+        <option value="Delete">Delete</option>
+        <option value="Move To...">Move To...</option>
+        <option value="Send To...">Send To...</option>
+        <option value="Copy To...">Copy To...</option>
+        <option value="Share To Commons">Share To Commons</option>
+    </select>
+    <hr>
+
+    <h2>Assignment Name</h2>
+    <form>
+        <input type="text" value="A1 - ENV + HTML">
+        <br>
+        <br>
+        <textarea id="w3review" name="w3review" rows="1" cols="50">
+           This is the assignment description.
+        </textarea><br><br>
+        <label for="points">Points</label><br>
+        <input type="text" id="points" name="points" value="100"><br><br>
+        <label for="asg">Assignment Group</label><br>
+        <select>
+            <option value="Group 1">Group 1</option>
+            <option value="Group 2">Group 2</option>
+            <option value="Group 3">Group 3</option>
+            <option value="Group 4">Group 4</option>
+            <option value="Group 5">Group 5</option>
+            <option value="Group 6">Group 6</option>
+            <option value="Group 7">Group 7</option>
+            <option value="Group 8">Group 8</option>
+            <option value="Group 9">Group 9</option>
+            <option selected value="ASSIGNMENTS">ASSIGNMENTS</option>
+        </select><br><br>
+
+        <label for="grades">Display Grade As</label><br>
+        <select>
+            <option value="Group 1">Group 1</option>
+            <option value="Group 2">Group 2</option>
+            <option value="Group 3">Group 3</option>
+            <option value="Group 4">Group 4</option>
+            <option value="Group 5">Group 5</option>
+            <option value="Group 6">Group 6</option>
+            <option value="Group 7">Group 7</option>
+            <option value="Group 8">Group 8</option>
+            <option value="Group 9">Group 9</option>
+            <option selected value="Percentage">Percentage</option>
+        </select><br><br>
+
+        <label for="subtype">Submission Type</label><br>
+        <select>
+            <option value="Group 1">Group 1</option>
+            <option value="Group 2">Group 2</option>
+            <option value="Group 3">Group 3</option>
+            <option value="Group 4">Group 4</option>
+            <option value="Group 5">Group 5</option>
+            <option value="Group 6">Group 6</option>
+            <option value="Group 7">Group 7</option>
+            <option value="Group 8">Group 8</option>
+            <option value="Group 9">Group 9</option>
+            <option selected value="Online">Online</option>
+        </select><br><br>
+
+        <label for="entry">Online Entry Options</label><br>
+        <input type="checkbox" id="text" name="text" value="Text">
+        <label for="text"> Text Entry</label><br>
+        <input type="checkbox" id="website" name="website" value="Website">
+        <label for="website"> Website URL</label><br>
+        <input type="checkbox" id="media" name="media" value="Media">
+        <label for="media"> Media Recordings</label><br>
+        <input type="checkbox" id="annotations" name="annotations" value="annotations">
+        <label for="annotations"> Student Annotations</label><br>
+        <input type="checkbox" id="file" name="file" value="file">
+        <label for="file"> File Uploads</label><br><br>
+
+        <label>Assign</label><br>
+        <label>Assign To</label><br>
+        <input type="text" value="Everyone"><br><br>
+
+        <label for="due">Due</label><br>
+        <input type="date" id="due" name="due"><br><br>
+
+        <label for="from">Available From</label><br>
+        <input type="date" id="from" name="from"><br><br>
+
+        <label for="until">Until</label><br>
+        <input type="date" id="until" name="until"><br><br>
+
+        <button>Cancel</button>
+        <button>Save</button>
+
+
+            
+    </form>
+    
+
+</body>
+</html>
