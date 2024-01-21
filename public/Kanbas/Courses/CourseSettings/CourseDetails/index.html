@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav >
+        <a href="#" class="active">Course Details</a>
+        <a href="#">Sections</a>
+        <a href="#">Navigation</a>
+        <a href="#">Apps</a>
+        <a href="#">Feature Options</a>
+        <a href="#">Integrations</a>
+    </nav>
+    <h1>Course Details</h1>
+    <table width="100%">
+        <tr>
+            <td>
+                <h4>Image: </h4>
+            </td>
+            <td>
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <input type="file" id="photo" name="photo" accept="image/*" required>
+                    <!-- <input type="submit" value="Upload"> -->
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>Name: </h4>
+            </td>
+            <td>
+<p>Web Development CS5610</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>Course Code:</h4>
+            </td>
+            <td>
+                <p>CS5610</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <h4>Blueprint Course</h4>
+
+            </td>
+            <td>
+                <p>No</p>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Course Template</h4>
+
+            </td>
+            <td>
+                
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" disabled>
+                <p>Enable course as a template  </p>  
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>Time Zone:</h4>
+            </td>
+            <td>
+                <select>
+                    <option value="volvo">Eastern Time (US & Canada)</option>
+                    <option value="saab">Central Time (US & Canada)</option>
+                    <option value="opel">Mountain Time (US & Canada)</option>
+                    <option value="audi">Pacific Time (US & Canada)</option>
+                  </select>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>SIS ID:</h4>
+            </td>
+            <td>
+                <p>CS5610</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>Subaccount:</h4>
+            </td>
+            <td>
+               <p>CS Grads</p> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>Term:</h4>
+            </td>
+            <td>
+                <p>2024_Spring Semester Full Term</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>Participation</h4>
+            </td>
+            <td>
+                <select>
+                    <option value="volvo">Term</option>
+                    <option value="saab">Central Time (US & Canada)</option>
+                    <option value="opel">Mountain Time (US & Canada)</option>
+                    <option value="audi">Pacific Time (US & Canada)</option>
+
+                </select>
+                <p>Course participation is limited to term start and end dates.</p>
+                <label for="start">Start:</label><br /><br />
+                <input type="date" id="start" name="start"><br /><br />
+                <label for="end">End:</label><br /><br /> 
+                <input type="date" id="end" name="end" value=""><br /><br />
+                <input type="checkbox" id="start" name="start" disabled>
+                Restrict students from viewing course before term start date<br />
+                <input type="checkbox" id="end" name="end" disabled>
+                Restrict students from viewing course after term end date<br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+<h4>Default due time:</h4>
+            </td>
+            <td>
+<select>
+        <option value="def">Account default(11:59pm)</option>
+        <option value="saab">Central Time (US & Canada)</option>
+        <option value="opel">Mountain Time (US & Canada)</option>
+        <option value="audi">Pacific Time (US & Canada)</option>
+</select>
+<p>This influences the user interface for setting due dates.It does not change the time due for any existing assignments. </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Language:</h4>
+            </td>
+            <td>
+                <select>
+                    <option value="def">Not set(user-configurable,defaults to English)</option>
+                    <option value="saab">Central Time (US & Canada)</option>
+                    <option value="opel">Mountain Time (US & Canada)</option>
+                    <option value="audi">Pacific Time (US & Canada)</option>
+            </select>
+            <p>This will override any user/system language preferences. This is only recommended for foreign language courses. </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>File Storage:</h4>
+            </td>
+            <td>
+                <p>10000 megabytes</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Large Course:</h4>
+            </td>
+            <td>
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" >
+                Launch SpeedGrader Filtered by Student Group  
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Grading Scheme:</h4>
+            </td>
+            <td>
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" > Enable course grading scheme 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>License:</h4>
+            </td>
+            <td>
+                <select>
+                    <option value="def">Private(Copyrighted)</option>
+                    <option value="saab">Central Time (US & Canada)</option>
+                    <option value="opel">Mountain Time (US & Canada)</option>
+                    <option value="audi">Pacific Time (US & Canada)</option>
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>File Copyright:</h4>
+            </td>
+            <td>
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" > Copyright and license information must be provided for files before they are published.
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Visibility:</h4>
+            </td>
+            <td>
+                <p>If you need to make your course public please contact your administrator/support.</p>
+                <select disabled>
+                    <option value="def">Course</option>
+                    <option value="saab">Central Time (US & Canada)</option>
+                    <option value="opel">Mountain Time (US & Canada)</option>
+                    <option value="audi">Pacific Time (US & Canada)</option>
+                </select>
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" disabled>Include this course in public course index.
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Format:</h4>
+            </td>
+            <td>
+                <select >
+                    <option value="oncampus">On-Campus</option>
+                    <option value="online">Online</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Mastery Paths:</h4>
+            </td>
+            <td>
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" >Enable individual learning paths for students based on assessment.
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Description:</h4>
+            </td>
+            <td>
+                <textarea cols="50" rows="4"></textarea>
+            </td>
+        </tr>
+    </table>
+    <hr/>
+    <button>Update Course Details</button>
+
+</body>
+</html>
