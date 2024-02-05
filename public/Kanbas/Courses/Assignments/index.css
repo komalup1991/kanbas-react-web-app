@@ -52,6 +52,7 @@ ul.list-group {
 
 .breadcrumb i {
   font-size: 20px;
+  margin-right: 10px;
 }
 
 .breadcrumb-item li {
@@ -100,13 +101,12 @@ ul.list-group {
   border-left: 1px solid #c0c0c0;
 }
 
-.form-control {
+.wd-form-control {
   width: 200px;
 }
 
 span {
-  font-size: 25px;
-  font-weight: 2em;
+  font-size: 20px;
 }
 
 .wd-rounded {
@@ -118,7 +118,7 @@ span {
 
 .list-group .col-1 {
   margin-top: 30px;
-  font-size: 2em;
+  font-size: 20px;
   padding-right: 5px;
   margin-left: 0px;
   padding-left: 0px;
