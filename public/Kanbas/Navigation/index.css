@@ -36,3 +36,24 @@
 .icon-account {
   color: white;
 }
+
+.wd-navigation-mobile {
+  width: 100%;
+  list-style: none;
+  font-size: 0.8em;
+}
+
+.wd-navigation-mobile li {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.wd-navigation-mobile svg {
+  margin-right: 10px;
+}
+
+.wd-navigation-mobile a {
+  text-decoration: none;
+  color: red;
+  font-size: 18px;
+}
