@@ -17,6 +17,8 @@ body * {
 }
 .wd-bg-color-black {
   background-color: black;
+  height: 100%;
+  width: 80px;
 }
 
 .wd-bg-color-black .wd-course-navigation {

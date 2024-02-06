@@ -1,0 +1,17 @@
+.breadcrumb li {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.breadcrumb i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.breadcrumb-item li {
+  color: red;
+}
+
+.table-striped input {
+  width: 60px;
+}
