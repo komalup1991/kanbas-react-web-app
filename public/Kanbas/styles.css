@@ -17,13 +17,13 @@ body * {
 }
 .wd-bg-color-black {
   background-color: black;
-  height: 100%;
+  /* height: 100%; */
   width: 80px;
 }
 
-.wd-bg-color-black .wd-course-navigation {
+/* .wd-bg-color-black .wd-course-navigation {
   height: 100%;
-}
+} */
 
 .wd-flex-row-container {
   display: flex;
