@@ -104,3 +104,16 @@ hr {
   padding: 20px;
   color: white;
 }
+.breadcrumb li {
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.breadcrumb i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.breadcrumb-item li {
+  color: red;
+}
