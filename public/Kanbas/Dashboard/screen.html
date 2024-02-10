@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../../../libs/bootstrap/bootstrap.min.css" />
+    <link href="../../libs/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link href="index.css" rel="stylesheet" />
     <link rel="stylesheet" href="../Navigation/index.css" />
-    <link rel="stylesheet" href="../../Navigation/index.css" />
-    <link rel="stylesheet" href="../../styles.css" />
-    <link rel="stylesheet" href="index.css" />
+
     <script
       src="https://kit.fontawesome.com/a0e3c62fa0.js"
       crossorigin="anonymous"
@@ -21,17 +18,27 @@
           <li>
             <a href="http://northeastern.edu"
               ><img
-                src="../../../images/neu.png"
-                alt="Northeastern University Logo"
+                style="height: 50px; width: 50px"
+                src="../../images/neu.png"
             /></a>
           </li>
-          <li class="icon-account wd-active">
-            <a href="../Profile/screen.html"
+          <li
+            class="icon-account"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Account"
+          >
+            <a href="../Account/Profile/screen.html"
               ><br /><i class="fa-regular fa-circle-user"></i>Account</a
             >
           </li>
-          <li>
-            <a href="../../Dashboard/screen.html">
+          <li
+            class="wd-active"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Dashboard"
+          >
+            <a href="../../Kanbas/Dashboard/screen.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="ic-icon-svg ic-icon-svg--dashboard"
@@ -50,8 +57,8 @@
               Dashboard
             </a>
           </li>
-          <li>
-            <a href="../../Courses/Home/screen.html">
+          <li data-toggle="tooltip" data-placement="right" title="Courses">
+            <a href="../../Kanbas/Courses/Home/screen.html">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="ic-icon-svg ic-icon-svg--courses"
@@ -69,7 +76,7 @@
               <br />Courses
             </a>
           </li>
-          <li>
+          <li data-toggle="tooltip" data-placement="right" title="Calendar">
             <a href="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +95,7 @@
               <br />Calendar
             </a>
           </li>
-          <li>
+          <li data-toggle="tooltip" data-placement="right" title="Inbox">
             <a href="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +114,7 @@
               <br />Inbox
             </a>
           </li>
-          <li>
+          <li data-toggle="tooltip" data-placement="right" title="History">
             <a href="">
               <svg
                 viewBox="0 0 1920 1920"
@@ -125,7 +132,7 @@
               <br />History
             </a>
           </li>
-          <li>
+          <li data-toggle="tooltip" data-placement="right" title="Commons">
             <a href="">
               <svg
                 version="1.1"
@@ -141,7 +148,7 @@
               <br />Commons
             </a>
           </li>
-          <li>
+          <li data-toggle="tooltip" data-placement="right" title="Studio">
             <a href="">
               <svg
                 version="1.1"
@@ -157,7 +164,7 @@
               <br />Studio
             </a>
           </li>
-          <li>
+          <li data-toggle="tooltip" data-placement="right" title="Help">
             <a href="">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -180,46 +187,299 @@
           </li>
         </ul>
       </div>
-      <div>
-        <ul>
-          <li><a href="">Notifications</a></li>
-          <li><a href="/Kanbas/Account/Profile/screen.html">Profile</a></li>
-          <li><a href="">Files</a></li>
-          <li><a href="">Settings</a></li>
-          <li><a href="">ePortfolios</a></li>
-          <li><a href="">Shared Content</a></li>
-          <li><a href="">The Hub</a></li>
-          <li><a href="">Qwickly Course Tools</a></li>
-          <li><a href="">Global Announcements</a></li>
-        </ul>
-      </div>
-      <div>
-        <p>Komal Upadhyay's Profile</p>
+      <div class="container-fluid wd-fixed-top-margin">
+        <h1>Dashboard</h1>
         <hr />
-        <table width="100%">
-          <tr>
-            <td>
-              <h1>Komal Upadhyay</h1>
-            </td>
-            <td>
-              <form action="/Kanbas/Account/Profile/Edit/screen.html">
-                <button type="submit">Edit Profile</button>
-              </form>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <h2>Contact</h2>
-              <p>
-                No registered services, you can add some on the settings page.
-              </p>
-              <h2>Biography</h2>
-              <p>Student , Software Engineer</p>
-              <h2>Links</h2>
-              <p><a href="">YouTube</a></p>
-            </td>
-          </tr>
-        </table>
+        <div class="wd-left-margin">
+          <h2>Published Courses (9)</h2>
+          <hr />
+          <div class="row">
+            <div class="row row-cols-1 row-cols-md-5 g-4 wd-dashboard-grid">
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/rocket.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5004 Object Oriented Design</a
+                    >
+                    <p class="card-text text-truncate">Java Course</p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/mth.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5008 DSA</a
+                    >
+                    <p class="card-text text-truncate">
+                      Data Structures/Algorithms in C
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/reading-book.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5520 Mobile Application Development</a
+                    >
+                    <p class="card-text text-truncate">
+                      Android Development using Java
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/brainstorm.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5002 Discrete Mathematics</a
+                    >
+                    <p class="card-text text-truncate">
+                      Discrete Maths Basic Algorithms
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/read.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5200 Database Management Systems</a
+                    >
+                    <p class="card-text text-truncate">
+                      Full Stack Development with MySQL and django
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/bookredtag.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5800 Algorithms</a
+                    >
+                    <p class="card-text text-truncate">
+                      Core CS course with all required algorithms
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/online-course.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5610 Web Development</a
+                    >
+                    <p class="card-text text-truncate">
+                      Full Stack web development covering HTML,CSS, Javascript,
+                      MongoDB and React
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/wall-clock.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS5100 Foundations Of AI</a
+                    >
+                    <p class="card-text text-truncate">
+                      Introduction to Artificial Intelligence covering
+                      Supervised, unsupervised and Deep Learning
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col" style="width: 300px">
+                <div class="card">
+                  <img
+                    src="../../images/elearning.png"
+                    class="card-img-top card-back"
+                    style="max-height: 150px"
+                  />
+                  <div class="card-body text-truncate">
+                    <a
+                      class="card-title"
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      style="
+                        text-decoration: none;
+                        color: navy;
+                        font-weight: bold;
+                      "
+                    >
+                      CS7290 SpTp:Data Science, AI, ML</a
+                    >
+                    <p class="card-text text-truncate">
+                      Research based course on special topics in AI, ML and data
+                      science
+                    </p>
+                    <a
+                      href="../../Kanbas/Courses/Home/screen.html"
+                      class="btn btn-primary"
+                    >
+                      Go
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
