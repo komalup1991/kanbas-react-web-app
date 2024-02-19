@@ -1,8 +1,9 @@
 import ModuleList from "./List";
+import Actions from "./Actions";
 function Modules() {
   return (
     <div>
-      <h2>Modules</h2>
+      <Actions />
       <ModuleList />
     </div>
   );
