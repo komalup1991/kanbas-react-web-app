@@ -9,7 +9,7 @@ import Home from './Courses/Home';
 
 const Kanbas = () => {
   return (
-    <div className="d-flex wd-bg-color-black">
+    <div className="d-flex">
     <div>
      
       <KanbasNavigation />
