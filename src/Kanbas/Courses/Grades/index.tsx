@@ -1,5 +1,9 @@
 import { assignments, enrollments, grades, users } from "../../Database";
 import { useParams } from "react-router-dom";
+import {FaFileImport,FaFileExport} from "react-icons/fa";
+import {DiAptana} from "react-icons/di";
+import { FaFilter } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
 function Grades() {
   const { courseId } = useParams();
   const as = assignments.filter((assignment) => assignment.course === courseId);
@@ -7,16 +11,16 @@ function Grades() {
   return (
     <>
      
-      <div className="col col-10 col-xs-12">
+      <div className="col col-xs-12">
             <div className="wd-flex-grow-1 float-end">
               <button type="button" className="btn btn-light mr-5">
-                <i className="fa-solid fa-file-import"></i> Import
+                <FaFileImport/> Import
               </button>
               <button type="button" className="btn btn-light mr-5">
-                <i className="fa-solid fa-file-export"></i> Export
+                <FaFileExport/> Export
               </button>
               <button type="button" className="btn btn-light mr-5">
-                <i className="fa-solid fa-gear"></i>
+                <DiAptana/>
               </button>
             </div>
             <br />
@@ -26,9 +30,9 @@ function Grades() {
                 <div className="mb-2 fw-bold">Student Names</div>
                 <select className="form-select" aria-label="Default select example">
                   <option value="none" selected disabled hidden>
-                    <span
-                      ><i className="fa-solid fa-magnifying-glass"></i> Search
-                      Students</span>
+                   
+                      Search
+                      Students
                   </option>
 
                   <option value="1">One</option>
@@ -50,7 +54,7 @@ function Grades() {
             </div>
             <div>
               <button type="button" className="btn btn-light m-2">
-                <i className="fa-solid fa-filter"></i> Apply Filters
+                <FaFilter/> Apply Filters
               </button>
             </div>
       <div className="table-responsive ">
@@ -65,7 +69,7 @@ function Grades() {
               return (
                 <tr>
                    <td>{user?.firstName} {user?.lastName}</td>
-                   {assignments.map((assignment) => {
+                   {as.map((assignment) => {
                      const grade = grades.find(
                        (grade) => grade.student === enrollment.user && grade.assignment === assignment._id);
                        return (<td>{grade?.grade || ""}</td>);})}

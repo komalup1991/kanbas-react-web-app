@@ -127,3 +127,7 @@ span {
 .wd-bg-color-black {
   height: 100%;
 }
+
+.wd-margin-left {
+  margin-right: 5px;
+}

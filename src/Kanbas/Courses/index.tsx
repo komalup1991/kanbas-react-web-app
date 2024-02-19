@@ -25,33 +25,36 @@ const Courses = () => {
 
   return (
     <div className='container'>
-       <div className="wd-student-view d-none d-md-block">
-          <button type="button" className="btn btn-light float-end m-3">
-            <FaGlasses />
-            Student View
-          </button>
-        </div>
-        
-        <div>
-          <Breadcrumb courseId={courseId ? courseId : ""} name={course? course.name : ""} pathName ={currentPath} />
-        </div>
-      <hr/>
       <div>
-        <div className='col'><CourseNavigation /></div>
-          <div
-            className="overflow-y-scroll position-fixed bottom-0 end-0 col"
-            style={{ left: "320px", top: "50px" }} >
-            <Routes>
-              <Route path="/" element={<Navigate to="Home" />} />
-              <Route path="Home" element={<Home />} />
-              <Route path="Modules" element={<Modules />} />
-              <Route path="Assignments" element={<Assignments/>} />
-              <Route path="Piazza" element={<h1>Piazza</h1>} />
-              <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
-              <Route path="Grades" element={<Grades />} />
-            </Routes>
+        <div className='d-flex justify-content-between'>
+          <div style={{    marginTop: "20px", marginBottom: "20px"}}>
+            <Breadcrumb courseId={courseId ? courseId : ""} name={course? course.name : ""} pathName ={currentPath} />
+          </div>
+          <div>
+            <button type="button" className="btn btn-light float-end m-3">
+              <FaGlasses />
+              Student View
+            </button>
           </div>
         </div>
+        <hr/>
+      </div>
+      <div className='container d-flex'>
+        <div className='col flex-grow-0'>
+          <CourseNavigation />
+        </div>
+        <div className='col flex-grow-1'>
+          <Routes>
+            <Route path="/" element={<Navigate to="Home" />} />
+            <Route path="Home" element={<Home />} />
+            <Route path="Modules" element={<Modules />} />
+            <Route path="Assignments" element={<Assignments/>} />
+            <Route path="Piazza" element={<h1>Piazza</h1>} />
+            <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
+            <Route path="Grades" element={<Grades />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   )
 }

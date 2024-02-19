@@ -9,6 +9,12 @@
       "_id": "2",
       "student": "122",
       "assignment": "A101",
+      "grade": "93"
+    },
+    {
+      "_id": "2",
+      "student": "122",
+      "assignment": "A201",
       "grade": "91"
     },
     {
@@ -27,7 +33,7 @@
       "_id": "5",
       "student": "122",
       "assignment": "A102",
-      "grade": "91"
+      "grade": "99"
     },
     {
       "_id": "6",

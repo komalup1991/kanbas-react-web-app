@@ -1,6 +1,9 @@
 import React from "react";
+import './index.css'
+import { FaCheckCircle, FaEllipsisV} from "react-icons/fa";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { assignments } from "../../../Database";
+import { FaCalendarAlt } from "react-icons/fa";
 function AssignmentEditor() {
   const { assignmentId } = useParams();
   const assignment = assignments.find(
@@ -13,9 +16,191 @@ function AssignmentEditor() {
   };
   return (
     <div>
-      <h2>Assignment Name</h2>
+      <span className="float-end">
+        <FaCheckCircle className="text-success"/>
+        Published
+        <FaEllipsisV className="ms-2" />
+      </span>  
+      <br />
+      <br />
+     
+      <h6>Assignment Name</h6>
       <input value={assignment?.title}
              className="form-control mb-2" />
+
+<div className="form-group">
+  <textarea
+    className="form-control"
+    id="exampleFormControlTextarea1"
+    rows={3}
+  >
+   {assignment?.description}
+  </textarea>
+</div>
+
+<div className="container text-left">
+                      <div className="container text-right">
+                        <div className="row justify-content-md-center">
+                          <div className="col col-lg-2 text-end align-self-center">
+                            Points
+                          </div>
+                          <div className="col col-lg-6">
+                            <input
+                              className="form-control"
+                              type="number"
+                              value={assignment?.maxPoints}
+                            />
+                          </div>
+                        </div>
+
+                        <div className="row justify-content-md-center">
+                          <div className="col col-lg-2 text-end align-self-center">
+                            Assignment Group
+                          </div>
+                          <div className="col col-lg-6 wd-margin-vertical">
+                        
+
+                            <select
+                              className="form-select"
+                              aria-label="Default select example"
+                            >
+                              <option selected>ASSIGNMENTS</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                         
+                          </div>
+                        </div>
+                        <div className="row justify-content-md-center">
+                          <div
+                            className="col col-lg-2 text-end align-self-center wd-margin-vertical"
+                          >
+                            Display Grade as
+                          </div>
+                          <div className="col col-lg-6">
+                           
+
+                            <select
+                              className="form-select"
+                              aria-label="Default select example"
+                            >
+                              <option selected>Percentage</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          
+                          </div>
+                        </div>
+                    
+                        <div className="row justify-content-md-center">
+                          <div
+                            className="col col-lg-2 text-end align-self-center wd-margin-vertical"
+                          >
+                            Submission Type
+                          </div>
+                          <div className="col col-lg-6">
+                        
+
+                            <select
+                              className="form-select"
+                              aria-label="Default select example"
+                            >
+                              <option selected>Online</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                          
+                          </div>
+                        </div>
+                    
+
+                        <div className="row justify-content-md-center">
+                          <div className="col col-lg-2"></div>
+                          <div className="col col-lg-6 wd-margin-vertical">
+                            <input type="checkbox" className="ms-2" /><label
+                              className="ms-2"
+                              >Do not count this assignment towards the final
+                              grade</label><br />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row justify-content-md-center">
+                        <div className="col col-lg-2 text-end">Assign</div>
+                        <div className="col col-lg-6 box border">
+                          <p className="ms-2">Assign to</p>
+                          <input
+                            className="form-control"
+                            type="text"
+                            value="Everyone"
+                            id="assignmentName"
+                            placeholder="Everyone"
+                          />
+
+                          <p className="ms-2">Due</p>
+                          <div className="input-group mb-3">
+                            <input type="text" value={assignment?.dueDate} />
+                            <span className="input-group-text" id="basic-addon2"
+                              ><FaCalendarAlt/>
+                            </span>
+                          </div>
+
+                          <div className="container text-left">
+                            <div className="row">
+                              <div className="col">
+                                <p>Available from</p>
+                              </div>
+                              <div className="col">
+                                <p>Until</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div className="container text-left">
+                            <div className="row">
+                              <div className="col">
+                                <div className="input-group mb-3">
+                                  <input
+                                    type="text"
+                                    value={assignment?.dueDate}
+                                  />
+                                  <span className="input-group-text"
+                                    ><FaCalendarAlt/>
+                                  </span>
+                                </div>
+                              </div>
+                              <div className="col">
+                                <div className="input-group mb-3">
+                                  <input
+                                    type="text"
+                                    aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2"
+                                  />
+                                  <span className="input-group-text"
+                                    ><FaCalendarAlt/>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <input
+                            type="text"
+                            className="form-control text-center"
+                            id="exampleInputPassword1"
+                            value="+ Add"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <hr />
+                    <input type="checkbox" className="ms-2" /><label className="ms-2"
+                      >Notify user that this content has changed</label><br />
+
+
       <button onClick={handleSave} className="btn btn-success ms-2 float-end">
         Save
       </button>
