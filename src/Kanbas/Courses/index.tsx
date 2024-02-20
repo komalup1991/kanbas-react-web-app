@@ -18,9 +18,9 @@ const Courses = () => {
     const {courseId} = useParams();
     const course = courses.find((course) => course._id === courseId);
     const { pathname } = useLocation();
-    var currentPath = pathname.split("/").pop(); 
-    if (currentPath === undefined) {
-      currentPath = "Home"
+    let paths = pathname.split("/");
+    if (paths.length > 3) {
+      paths.splice(0, 3);
     }
 
   return (
@@ -28,7 +28,7 @@ const Courses = () => {
       <div>
         <div className='d-flex justify-content-between'>
           <div style={{    marginTop: "20px", marginBottom: "20px"}}>
-            <Breadcrumb courseId={courseId ? courseId : ""} name={course? course.name : ""} pathName ={currentPath} />
+            <Breadcrumb courseId={courseId ? courseId : ""} name={course? course.name : ""} pathNames ={paths} />
           </div>
           <div>
             <button type="button" className="btn btn-light float-end m-3">
@@ -52,6 +52,10 @@ const Courses = () => {
             <Route path="Piazza" element={<h1>Piazza</h1>} />
             <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
             <Route path="Grades" element={<Grades />} />
+            <Route path="Zoom Meetings" element={<h1>Zoom Meetings</h1>} />
+            <Route path="Quizzes" element={<h1>Quizzes</h1>} />
+            <Route path="People" element={<h1>People</h1>} />
+            <Route path="Pages" element={<h1>Pages</h1>} />
           </Routes>
         </div>
       </div>

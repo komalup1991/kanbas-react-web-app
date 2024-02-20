@@ -78,6 +78,97 @@
         }
       ]
     },
+
+
+
+
+
+{
+  "_id": "C101",
+  "name": "Module 1: Introduction to OO",
+  "description": "Basic principles of rocket propulsion and rocket engines.",
+  "course": "CS5004",
+  "lessons": [
+    {
+      "_id": "L101",
+      "name": "Module 1.1 Data types",
+      "description": "A brief history of rocketry and space exploration.",
+      "module": "C101"
+    },
+    {
+      "_id": "L102",
+      "name": "Module 1.2 Representing complex data",
+      "description": "Basic principles of rocket propulsion.",
+      "module": "C101"
+    },
+    {
+      "_id": "L103",
+      "name": "Module 1.3 Examples in Java",
+      "description": "Overview of different types of rocket engines.",
+      "module": "C101"
+    }
+  ]
+},
+{
+  "_id": "C102",
+  "name": "Module 2: How to design classes",
+  "description": "Understanding rocket fuel, combustion processes, and efficiency.",
+  "course": "CS5004",
+  "lessons": [
+    {
+      "_id": "L201",
+      "name": "Module 2.1 Encapsulation",
+      "description": "How to create a class for representing a simple rocket engine.",
+      "module": "C102"
+    },
+    {
+      "_id": "L202",
+      "name": "Module 2.2 Inheritance",
+      "description": "Designing a more complex class hierarchy involving rockets, engines",
+      "module": "C102"
+    },
+    {
+      "_id": "L203",
+      "name": "Module 2.3 Polymorphism",
+      "description": "Implementing polymorphic behavior using interfaces and abstract classes.",
+      "module": "C102"
+    }
+  ]
+},
+{
+  "_id": "C103",
+  "name": "Module 3: Advanced OO",
+  "description": "Using advanced object-oriented concepts such as generics, reflection",
+  "course": "CS5004",
+  "lessons": [
+    {
+      "_id": "L301",
+      "name": "Module 3.1 Generics",
+      "description": "Creating generic classes and methods that work with any type.",
+      "module": "C103"
+    },
+    {
+      "_id": "L302",
+      "name": "Module 3.2 Reflection",
+      "description": "Exploring the Java Reflection API and how it can be used.",
+      "module": "C103"
+    },
+    {
+      "_id": "L303",
+      "name": "Module 3.3 Design Patterns",
+      "description": "Applying design patterns in your code through inheritance and composition.",
+      "module": "C103"
+    }
+  ]
+}
+,
+
+
+
+
+
+
+
     {
       "_id": "M201",
       "name": "Fundamentals of Aerodynamics",

@@ -1,4 +1,11 @@
-[ { "_id": "CS5004", "name": "CS5004 Object Oriented Design", "number": "CS5004", "startDate": "2023-01-10",
+[ 
+  { "_id": "RS101", "name": "RS101 Rocket Propulsion", "number": "RS4550", "startDate": "2023-01-10",
+  "endDate": "2023-05-15", "image": "drawing.png"  },
+{ "_id": "RS102", "name": "RS102 Aerodynamics", "number": "RS4560", "startDate": "2023-01-10",
+  "endDate": "2023-05-15", "image": "drawing-tablet.png"  },
+{ "_id": "RS103", "name": "RS103 Spacecraft Design", "number": "RS4570", "startDate": "2023-01-10",
+  "endDate": "2023-05-15", "image": "creativity.png"  },  
+{ "_id": "CS5004", "name": "CS5004 Object Oriented Design", "number": "CS5004", "startDate": "2023-01-10",
     "endDate": "2023-05-15", "image": "rocket.png"  },
   { "_id": "CS5008", "name": " CS5008 DSA", "number": "CS5008", "startDate": "2023-01-10",
     "endDate": "2023-05-15", "image": "mth.png"  },
@@ -15,12 +22,7 @@
   { "_id": "CS5100", "name": "CS5100 Foundations Of AI", "number": "CS5100", "startDate": "2023-01-10",
     "endDate": "2023-05-15", "image": "wall-clock.png"  },
   { "_id": "CS7290", "name": "CS7290 SpTp:Data Science, AI, ML", "number": "CS7290", "startDate": "2023-01-10",
-    "endDate": "2023-05-15", "image": "elearning.png"  }, 
-    { "_id": "RS101", "name": "RS101 Rocket Propulsion", "number": "RS4550", "startDate": "2023-01-10",
-    "endDate": "2023-05-15", "image": "drawing.png"  },
-  { "_id": "RS102", "name": "RS102 Aerodynamics", "number": "RS4560", "startDate": "2023-01-10",
-    "endDate": "2023-05-15", "image": "drawing-tablet.png"  },
-  { "_id": "RS103", "name": "RS103 Spacecraft Design", "number": "RS4570", "startDate": "2023-01-10",
-    "endDate": "2023-05-15", "image": "creativity.png"  }
+    "endDate": "2023-05-15", "image": "elearning.png"  }
+
  ]
 
