@@ -10,7 +10,7 @@ import Home from './Courses/Home';
 const Kanbas = () => {
   return (
     <div className="d-flex">
-    <div>
+    <div className='d-none d-md-block'>
      
       <KanbasNavigation />
     </div>

@@ -7,12 +7,12 @@ import Status from './Status'
 
 const Home = () => {
   return (
-    <div className='row'>
-      <div className='col'>
+    <div className='row flex'>
+      <div className='col flex-grow-1'>
         <Actions />
         <ModuleList />
       </div>
-      <div className='col col-3 col-xs-12 d-none d-xl-block'>
+      <div className='col flex-grow-0 d-none d-xl-block'>
         <Status />
       </div>
      

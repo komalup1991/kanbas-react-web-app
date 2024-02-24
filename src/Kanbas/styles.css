@@ -21,6 +21,11 @@ body * {
   width: 80px;
 }
 
+.top_bar_icons {
+  padding: 16px;
+  color: white;
+}
+
 /* .wd-bg-color-black .wd-course-navigation {
   height: 100%;
 } */
