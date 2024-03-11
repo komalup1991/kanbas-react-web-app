@@ -2,6 +2,7 @@ import React from "react";
 import ClickEvent from "./ClickEvent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
+import EventObject from "./EventObject";
 const Assignment4 = () => {
     function sayHello() {
         alert("Hello");
@@ -13,6 +14,7 @@ const Assignment4 = () => {
         <ClickEvent/>
         <PassingDataOnEvent/>
         <PassingFunctions theFunction={sayHello} />
+        <EventObject/>
 
 
 
