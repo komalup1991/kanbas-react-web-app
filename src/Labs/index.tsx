@@ -3,12 +3,15 @@ import Assignment3 from './a3';
 import Assignment4 from './a4';
 import {Routes, Route, Navigate}
   from "react-router";
+  import store from "./store";
+  import { Provider } from "react-redux";
 
 import Nav from '../Nav';
 
 
 const Labs = () => {
   return (
+    <Provider store={store}>
     <div>
     <Nav/>
     <Routes>
@@ -21,6 +24,8 @@ const Labs = () => {
      </Routes>
 
     </div>
+    </Provider>
+
   );
 }
 
