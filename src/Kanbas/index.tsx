@@ -5,6 +5,9 @@ import Courses from './Courses';
 import { Routes, Route, Navigate } from "react-router-dom";
 import './styles.css'
 import {courses} from "./Database";
+import store from "./store";
+import { Provider } from "react-redux";
+
 
 const Kanbas = () => {
   const [cs, setCourses] = useState<any[]>(courses);
@@ -31,6 +34,8 @@ const Kanbas = () => {
   };
 
   return (
+    <Provider store={store}>
+
     <div className="d-flex">
     <div className='d-none d-md-block'>
      
@@ -54,6 +59,7 @@ const Kanbas = () => {
 
     </div>
   </div>
+  </Provider>
 
   )
 }
