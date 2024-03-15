@@ -1,13 +1,35 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import KanbasNavigation from "./Navigation";
 import Dashboard from './Dashboard';
 import Courses from './Courses';
-import { HiMiniBars3 } from "react-icons/hi2";
 import { Routes, Route, Navigate } from "react-router-dom";
 import './styles.css'
-import Home from './Courses/Home';
+import {courses} from "./Database";
 
 const Kanbas = () => {
+  const [cs, setCourses] = useState<any[]>(courses);
+  const [course, setCourse] = useState({
+    _id: "1234", name: "New Course", number: "New Number",
+    startDate: "2023-09-10", endDate: "2023-12-15",image: "setting.png"
+  });
+  const addNewCourse = () => {
+    setCourses([...cs, { ...course, _id: new Date().getTime().toString() }]);
+  };
+  const deleteCourse = (courseId: any) => {
+    setCourses(cs.filter((course) => course._id !== courseId));
+  };
+  const updateCourse = () => {
+    setCourses(
+      cs.map((c) => {
+        if (c._id === course._id) {
+          return course;
+        } else {
+          return c;
+        }
+      })
+    );
+  };
+
   return (
     <div className="d-flex">
     <div className='d-none d-md-block'>
@@ -18,9 +40,16 @@ const Kanbas = () => {
     <Routes>
           <Route path="/" element={<Navigate to="Dashboard" />} />
           <Route path="/Account" element={<h1>Account</h1>} />
-          <Route path="/Dashboard" element={<Dashboard />} />
-          <Route path="/Courses/:courseId/*" element={<Courses />} />
-          <Route path="/Courses/*" element={<Courses />} />
+          <Route path="/Dashboard" element={<Dashboard
+              courses={cs}
+              course={course}
+              setCourse={setCourse}
+              addNewCourse={addNewCourse}
+              deleteCourse={deleteCourse}
+              updateCourse={updateCourse}/>
+} />
+          <Route path="/Courses/:courseId/*" element={<Courses courses={cs} />} />
+           {/* <Route path="/Courses/*" element={<Courses />} /> */}
         </Routes>
 
     </div>

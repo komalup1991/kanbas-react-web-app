@@ -18,7 +18,7 @@ import KanbasNavigation from '../Navigation';
 
 
 
-const Courses = () => {
+const Courses = ({ courses }: { courses: any[]; }) => {
     const {courseId} = useParams();
     const course = courses.find((course) => course._id === courseId);
     const { pathname } = useLocation();
