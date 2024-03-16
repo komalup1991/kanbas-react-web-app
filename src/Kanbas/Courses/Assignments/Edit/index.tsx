@@ -1,19 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import './index.css'
 import { FaCheckCircle, FaEllipsisV} from "react-icons/fa";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { assignments } from "../../../Database";
 import { FaCalendarAlt } from "react-icons/fa";
+import { useSelector, useDispatch } from "react-redux";
+import { KanbasState } from "../../../store";
+import {addAssignment, setAssignment, updateAssignment} from "../assignmentsReducer";
+
 function AssignmentEditor() {
   const { assignmentId } = useParams();
+  const { courseId } = useParams();
+  const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);
+  const assignmentA = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [mode, setMode] = useState('add');
   const assignment = assignments.find(
     (assignment) => assignment._id === assignmentId);
-  const { courseId } = useParams();
-  const navigate = useNavigate();
-  const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
+    useEffect(() => {
+      if (assignmentId) {
+        setMode('update');
+        const assignmentData = assignmentList.find(assignment => assignment._id === assignmentId);
+        if (assignmentData) {
+          dispatch(setAssignment(assignmentData));
+        }
+      } else {
+        // If no assignmentId (adding new assignment), set mode to 'add'
+        setMode('add');
+        // Dispatch action to set default values for new assignment
+        dispatch(setAssignment({}));
+      }
+    }, [assignmentId, assignmentList, dispatch]);
+  
+    const handleSave = () => {
+      if (mode === 'add') {
+        dispatch(addAssignment(assignmentA));
+      } else if (mode === 'update') {
+        dispatch(updateAssignment(assignmentA));
+      }
+      navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    };
+ 
+
+
   return (
     <div>
       <span className="float-end">
@@ -25,7 +55,10 @@ function AssignmentEditor() {
       <br />
      
       <h6>Assignment Name</h6>
-      <input value={assignment?.title}
+      <input value={assignmentA?.title}
+       onChange={(e) =>
+        dispatch(setAssignment({ ...assignment, title: e.target.value }))
+      }
              className="form-control mb-2" />
 
 <div className="form-group">
@@ -33,8 +66,12 @@ function AssignmentEditor() {
     className="form-control"
     id="exampleFormControlTextarea1"
     rows={3}
+    onChange={(e) =>
+      dispatch(setAssignment({ ...assignment, description: e.target.value }))
+    }
   >
-   {assignment?.description}
+   {assignmentA?.description}
+   
   </textarea>
 </div>
 
@@ -48,7 +85,10 @@ function AssignmentEditor() {
                             <input
                               className="form-control"
                               type="number"
-                              value={assignment?.maxPoints}
+                              onChange={(e) =>
+                                dispatch(setAssignment({ ...assignment, maxPoints: e.target.value }))
+                              }
+                              value={assignmentA?.maxPoints}
                             />
                           </div>
                         </div>
@@ -141,7 +181,11 @@ function AssignmentEditor() {
 
                           <p className="ms-2">Due</p>
                           <div className="input-group mb-3">
-                            <input type="text" value={assignment?.dueDate} />
+                            <input type="text" 
+                            onChange={(e) =>
+                              dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))
+                            }
+                            value={assignmentA?.dueDate} />
                             <span className="input-group-text" id="basic-addon2"
                               ><FaCalendarAlt/>
                             </span>
@@ -164,7 +208,7 @@ function AssignmentEditor() {
                                 <div className="input-group mb-3">
                                   <input
                                     type="text"
-                                    value={assignment?.dueDate}
+                                    value={assignmentA?.dueDate}
                                   />
                                   <span className="input-group-text"
                                     ><FaCalendarAlt/>
@@ -175,8 +219,7 @@ function AssignmentEditor() {
                                 <div className="input-group mb-3">
                                   <input
                                     type="text"
-                                    aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2"
+                                    value={assignmentA?.dueDate}
                                   />
                                   <span className="input-group-text"
                                     ><FaCalendarAlt/>
@@ -201,11 +244,16 @@ function AssignmentEditor() {
                       >Notify user that this content has changed</label><br />
 
 
-      <button onClick={handleSave} className="btn btn-success ms-2 float-end">
+<button
+        onClick={handleSave}
+        className="btn btn-success ms-2 float-end"
+      >
         Save
       </button>
-      <Link to={`/Kanbas/Courses/${courseId}/Assignments`}
-            className="btn btn-danger float-end">
+      <Link
+        to={`/Kanbas/Courses/${courseId}/Assignments`}
+        className="btn btn-danger float-end"
+      >
         Cancel
       </Link>
     </div>
