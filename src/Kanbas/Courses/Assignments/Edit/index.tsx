@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import './index.css'
 import { FaCheckCircle, FaEllipsisV} from "react-icons/fa";
 import { useNavigate, useParams, Link } from "react-router-dom";
@@ -11,27 +10,17 @@ import {addAssignment, setAssignment, updateAssignment} from "../assignmentsRedu
 function AssignmentEditor() {
   const { assignmentId } = useParams();
   const { courseId } = useParams();
-  const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);
   const assignmentA = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [mode, setMode] = useState('add');
+  let mode = '';
   const assignment = assignments.find(
     (assignment) => assignment._id === assignmentId);
-    useEffect(() => {
-      if (assignmentId) {
-        setMode('update');
-        const assignmentData = assignmentList.find(assignment => assignment._id === assignmentId);
-        if (assignmentData) {
-          dispatch(setAssignment(assignmentData));
-        }
-      } else {
-        // If no assignmentId (adding new assignment), set mode to 'add'
-        setMode('add');
-        // Dispatch action to set default values for new assignment
-        dispatch(setAssignment({}));
-      }
-    }, [assignmentId, assignmentList, dispatch]);
+  if (assignment) {
+    mode  = 'update';
+  } else {
+    mode = 'add';
+  }
   
     const handleSave = () => {
       if (mode === 'add') {

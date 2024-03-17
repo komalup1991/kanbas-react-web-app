@@ -4,7 +4,7 @@ import { assignments } from "../../Database";
 const initialState = {
   assignments: assignments,
   assignment: { title: "New Assignment 123", description: "New Description",
-  dueDate: "2022-12-12", maxPoints: 100, availableFromDate: "2022-12-12" , availableUntilDate:"2022-12-12"
+  dueDate: "2022-12-12", maxPoints: 100, availableFromDate: "2022-12-12" , availableUntilDate:"2022-12-12", status: "Active",
 },
 };
 
@@ -15,7 +15,7 @@ const assignmentsSlice = createSlice({
     reducers: {
         addAssignment: (state, action) => {
         state.assignments = [
-            { ...action.payload, _id: new Date().getTime().toString() },
+            { ...action.payload },
             ...state.assignments,
         ];
         },
@@ -34,7 +34,13 @@ const assignmentsSlice = createSlice({
         });
         },
         setAssignment: (state, action) => {
-        state.assignment = action.payload;
+            let payload = action.payload;
+            if (payload._id === undefined) {
+                let assignment = { ...initialState.assignment, course: payload.courseId.courseId, _id: new Date().getTime().toString()};
+                state.assignment = assignment;
+            } else {
+                state.assignment = { ...action.payload };
+            }
         },
     },
     });

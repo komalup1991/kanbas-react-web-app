@@ -1,7 +1,5 @@
-import React, { useState } from "react";
 import { FaCheckCircle, FaEllipsisV} from "react-icons/fa";
 import { Link, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
 import './index.css'
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { RxDragHandleDots2 } from "react-icons/rx";
@@ -9,20 +7,16 @@ import { GoPlus } from "react-icons/go";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../store";
 import {
-  deleteAssignment,
-  updateAssignment,
   setAssignment,
-  addAssignment,
 } from "./assignmentsReducer";
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignmentList = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);
-  const assignment = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
+  let assignmentsState = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);
   const dispatch = useDispatch();
-  const assignmentsList = assignments.filter(
+  const assignmentList = assignmentsState.filter(
     (assignment) => assignment.course === courseId);
-  const [selectedAssignment, setSelectedAssignment] = useState(assignmentsList[0]);
+    
   return (
     <>
   <div className="row g-3 align-items-center">
@@ -45,7 +39,10 @@ function Assignments() {
                     <button type="button" className="btn btn-danger wd-margin-left">
                      
                      
-                      <Link to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>
+                      <Link 
+                      to={`/Kanbas/Courses/${courseId}/Assignments/new`}
+                      onClick={() => dispatch(setAssignment({courseId: {courseId}}))}
+                      >
                       +Assignment</Link>
                       
                     </button>
