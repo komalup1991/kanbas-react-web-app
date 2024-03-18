@@ -15,18 +15,17 @@ function AssignmentEditor() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log("assignmentId", assignmentId)
+
   let mode = '';
   const assignment = assignments.find(
     (assignment) => assignment._id === assignmentId);
-  
-    console.log("assignment mode", assignment)
+
   if (assignment) {
     mode  = 'update';
   } else {
     mode = 'add';
   }
-    console.log("mode", mode)
+   
     const handleSave = () => {
       if (mode === 'add') {
         dispatch(addAssignment({ courseId: courseId}));
@@ -51,7 +50,7 @@ function AssignmentEditor() {
       <h6>Assignment Name</h6>
       <input value={assignmentA?.title}
        onChange={(e) =>
-        dispatch(setAssignment({ ...assignment, title: e.target.value }))
+        dispatch(setAssignment({ title: e.target.value }))
       }
              className="form-control mb-2" />
 
@@ -61,7 +60,7 @@ function AssignmentEditor() {
     id="exampleFormControlTextarea1"
     rows={3}
     onChange={(e) =>
-      dispatch(setAssignment({ ...assignment, description: e.target.value }))
+      dispatch(setAssignment({ description: e.target.value }))
     }
   >
    {assignmentA?.description}
@@ -80,7 +79,7 @@ function AssignmentEditor() {
                               className="form-control"
                               type="number"
                               onChange={(e) =>
-                                dispatch(setAssignment({ ...assignment, maxPoints: e.target.value }))
+                                dispatch(setAssignment({ maxPoints: e.target.value }))
                               }
                               value={assignmentA?.maxPoints}
                             />
@@ -177,7 +176,7 @@ function AssignmentEditor() {
                           <div className="input-group mb-3">
                             <input type="date" 
                             onChange={(e) =>
-                              dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))
+                              dispatch(setAssignment({ dueDate: e.target.value }))
                             }
                             value={assignmentA?.dueDate} />
                             
