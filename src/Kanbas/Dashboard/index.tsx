@@ -30,10 +30,10 @@ const Dashboard = ({ courses, course, setCourse, addNewCourse,
       <input value={course.endDate} className="form-control" type="date"    onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
 
 
-    <button onClick={addNewCourse} >
+    <button onClick={addNewCourse} className='add-update-btn'>
         Add
       </button>
-      <button onClick={updateCourse} >
+      <button onClick={updateCourse} className='add-update-btn' >
         Update
       </button>
 
@@ -57,7 +57,7 @@ const Dashboard = ({ courses, course, setCourse, addNewCourse,
                     style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
                     {course.name} 
                     <p>
-                    <button onClick={(event) => {
+                    <button className='add-update-btn' onClick={(event) => {
                 event.preventDefault();
                 setCourse(course);
               }}>
@@ -65,7 +65,7 @@ const Dashboard = ({ courses, course, setCourse, addNewCourse,
             </button>
 
                       
-                      <button onClick={(event) => {
+                      <button className='add-update-btn' onClick={(event) => {
                         event.preventDefault();
                         deleteCourse(course._id);
                       }}>

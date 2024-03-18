@@ -6,9 +6,22 @@ import { RxDragHandleDots2 } from "react-icons/rx";
 import { GoPlus } from "react-icons/go";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../store";
+import Dialog from "@material-ui/core/Dialog";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import Button from "@material-ui/core/Button";
+import { IconButton } from "@material-ui/core";
+import { useState } from "react";
+import { IoTrashBinSharp } from "react-icons/io5";
+
+
 import {
+  deleteAssignment,
   setAssignment,
 } from "./assignmentsReducer";
+
 
 function Assignments() {
   const { courseId } = useParams();
@@ -16,6 +29,21 @@ function Assignments() {
   const dispatch = useDispatch();
   const assignmentList = assignmentsState.filter(
     (assignment) => assignment.course === courseId);
+  const [open, setOpen] = useState(false);
+  const [assignmentIdtoDelete, setAssignmentId] = useState("");
+
+  const handleClickToOpen = (assignmentId: string) => {
+    setAssignmentId(assignmentId)
+      setOpen(true);
+  };
+
+  const handleToClose = () => {
+      setOpen(false);
+  }; 
+  const handleToDelete = (assignmentId: string) => {
+    console.log(assignmentId);
+    setOpen(false);
+    dispatch(deleteAssignment(assignmentId))};
     
   return (
     <>
@@ -36,14 +64,15 @@ function Assignments() {
                       +Group
                     </button>
                    
-                    <button type="button" className="btn btn-danger wd-margin-left">
+                    <button type="button" className="btn btn-danger wd-margin-left ">
                      
                      
-                      <Link 
+                      <Link className="wd-add-ass"
                       to={`/Kanbas/Courses/${courseId}/Assignments/new`}
-                      onClick={() => dispatch(setAssignment({courseId: {courseId}}))}
+                      onClick={() => dispatch(setAssignment({}))}
                       >
-                      +Assignment</Link>
+                      +Assignment
+                      </Link>
                       
                     </button>
                     <FaEllipsisV className="ms-2" />
@@ -95,6 +124,34 @@ function Assignments() {
                             </p>
                         </div>
                         <div className="col d-flex align-items-center float-end justify-content-center">
+                       
+                        <IconButton aria-label="delete" size="small" onClick={()=>{handleClickToOpen(assignment._id) }}>
+                        <IoTrashBinSharp />
+</IconButton>
+                          {/* <button type="button" className="btn btn-danger wd-margin-left"   onClick={()=>{handleClickToOpen(assignment._id) }} >
+                            Delete
+                            </button> */}
+                            <Dialog open={open} onClose={handleToClose}>
+                <DialogTitle>{"Delete Assignment?"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                    Are you sure you want to delete?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleToClose}
+                        color="primary" autoFocus>
+                        No
+                    </Button>
+                    <Button onClick= { () => { 
+                      console.log(assignment._id);
+                      handleToDelete(assignmentIdtoDelete) } }
+                        color="secondary" autoFocus>
+                        Yes
+                    </Button>
+                </DialogActions>
+            </Dialog>
+  
                         <FaCheckCircle className="text-success" />
                         <FaEllipsisV className="ms-2" />
                         </div>

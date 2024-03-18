@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { assignments } from "../../Database";
 
+
 const initialState = {
   assignments: assignments,
-  assignment: { title: "New Assignment 123", description: "New Description",
+  assignment: { title: "Assignment Name", description: "Assignment Description",
   dueDate: "2022-12-12", maxPoints: 100, availableFromDate: "2022-12-12" , availableUntilDate:"2022-12-12", status: "Active",
 },
 };
@@ -14,9 +15,11 @@ const assignmentsSlice = createSlice({
     initialState,
     reducers: {
         addAssignment: (state, action) => {
+            const assignment = { ...state.assignment, _id: new Date().getTime().toString(), course: action.payload.courseId};
+            console.log("addAssignment action.payload", assignment)
         state.assignments = [
-            { ...action.payload },
-            ...state.assignments,
+            { ...assignment }
+            ,...state.assignments,
         ];
         },
         deleteAssignment: (state, action) => {
@@ -26,6 +29,8 @@ const assignmentsSlice = createSlice({
         },
         updateAssignment: (state, action) => {
         state.assignments = state.assignments.map((assignment) => {
+            console.log("updateAssignment action.payload", assignment)
+
             if (assignment._id === action.payload._id) {
             return action.payload;
             } else {
@@ -35,12 +40,13 @@ const assignmentsSlice = createSlice({
         },
         setAssignment: (state, action) => {
             let payload = action.payload;
-            if (payload._id === undefined) {
-                let assignment = { ...initialState.assignment, course: payload.courseId.courseId, _id: new Date().getTime().toString()};
-                state.assignment = assignment;
+            if (JSON.stringify(payload) === '{}') {
+                state.assignment = initialState.assignment;
             } else {
-                state.assignment = { ...action.payload };
+                state.assignment = { ...state.assignment, ...action.payload };
             }
+            console.log("setAssignment assignment",  state.assignment)
+
         },
     },
     });

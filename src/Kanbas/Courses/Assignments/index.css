@@ -131,3 +131,7 @@ span {
 .wd-margin-left {
   margin-right: 5px;
 }
+.wd-add-ass {
+  text-decoration: none;
+  color: white;
+}

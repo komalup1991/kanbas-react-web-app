@@ -1,7 +1,6 @@
 import './index.css'
 import { FaCheckCircle, FaEllipsisV} from "react-icons/fa";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { assignments } from "../../../Database";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { KanbasState } from "../../../store";
@@ -11,20 +10,26 @@ function AssignmentEditor() {
   const { assignmentId } = useParams();
   const { courseId } = useParams();
   const assignmentA = useSelector((state: KanbasState) => state.assignmentsReducer.assignment);
+  const assignments = useSelector((state: KanbasState) => state.assignmentsReducer.assignments);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  console.log("assignmentId", assignmentId)
   let mode = '';
   const assignment = assignments.find(
     (assignment) => assignment._id === assignmentId);
+  
+    console.log("assignment mode", assignment)
   if (assignment) {
     mode  = 'update';
   } else {
     mode = 'add';
   }
-  
+    console.log("mode", mode)
     const handleSave = () => {
       if (mode === 'add') {
-        dispatch(addAssignment(assignmentA));
+        dispatch(addAssignment({ courseId: courseId}));
       } else if (mode === 'update') {
         dispatch(updateAssignment(assignmentA));
       }
@@ -170,14 +175,12 @@ function AssignmentEditor() {
 
                           <p className="ms-2">Due</p>
                           <div className="input-group mb-3">
-                            <input type="text" 
+                            <input type="date" 
                             onChange={(e) =>
                               dispatch(setAssignment({ ...assignment, dueDate: e.target.value }))
                             }
                             value={assignmentA?.dueDate} />
-                            <span className="input-group-text" id="basic-addon2"
-                              ><FaCalendarAlt/>
-                            </span>
+                            
                           </div>
 
                           <div className="container text-left">
@@ -196,23 +199,19 @@ function AssignmentEditor() {
                               <div className="col">
                                 <div className="input-group mb-3">
                                   <input
-                                    type="text"
+                                    type="date"
                                     value={assignmentA?.dueDate}
                                   />
-                                  <span className="input-group-text"
-                                    ><FaCalendarAlt/>
-                                  </span>
+                                  
                                 </div>
                               </div>
                               <div className="col">
                                 <div className="input-group mb-3">
                                   <input
-                                    type="text"
+                                    type="date"
                                     value={assignmentA?.dueDate}
                                   />
-                                  <span className="input-group-text"
-                                    ><FaCalendarAlt/>
-                                  </span>
+                                  
                                 </div>
                               </div>
                             </div>

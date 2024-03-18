@@ -49,10 +49,11 @@ const modulesList = modules.filter((module) => module.course === courseId);
   </div>
   <div  className="btn-wrapper">
     <button 
-       className="btn btn-success add-button" onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
+       className="btn btn-success wd-mod-add-btn" onClick={() => dispatch(addModule({ ...module, course: courseId }))}>
 
-      Add</button>
-    <button onClick={() => dispatch(updateModule(module))} className="btn btn-primary add-button">
+      Add
+      </button>
+    <button onClick={() => dispatch(updateModule(module))} className="btn btn-primary add-button wd-mod-add-btn">
                 Update
         </button>
 
@@ -68,12 +69,12 @@ const modulesList = modules.filter((module) => module.course === courseId);
           <li key={index}
             className="list-group-item"
             onClick={() => setSelectedModule(module)}>
-            <div>
+            <div >
               
               <FaEllipsisV className="me-2" />
               {module.name}
-              <span className="float-end">
-              <button  type="button" className="btn btn-success margin-name"
+              <span className="float-end ">
+              <button  type="button" className="btn btn-success"
               onClick={() => dispatch(setModule(module))}>
               Edit
             </button>
